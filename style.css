@@ -237,6 +237,9 @@ h5.didascalia {
   line-height: calc(var(--baseline) / 1.5);
   font-weight: 500;
 }
+.no-br {
+  white-space: nowrap; 
+}
 .title-proj {
   /*font-style: italic;
   font-weight: 400;*/
