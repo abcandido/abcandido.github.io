@@ -299,6 +299,7 @@ h5.didascalia {
     grid-template-columns: repeat(4, 1fr);
     column-gap: var(--margin-page);
     row-gap: var(--margin-page);
+    padding-bottom: 4em;
   }
   .main-content-home .paragraph {
     grid-column: 1 / span 4;
