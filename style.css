@@ -335,6 +335,7 @@ h5.didascalia {
     top: 0;
     left: 0;
     pointer-events: none;
+    z-index: 9;
   }
   .show-block-note {
     display: block;
@@ -363,5 +364,12 @@ h5.didascalia {
   }
   .full-with-info {
     grid-column: 1 / span 2;
+  }
+  h5.didascalia {
+    font-size: 1.3rem;
+    margin-bottom: 0;
+    font-size: .9rem;
+    line-height: calc(var(--baseline) / 1.5);
+    font-weight: 500;
   }
 }
