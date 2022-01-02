@@ -22,11 +22,13 @@
   src: url("/fonts/Plain-Regular.otf");
   src: url("/fonts/BaselGrotesk-Regular.ttf");
   font-style: normal;
+  font-weight: 400;
 }
 @font-face {
   font-family: "AD";
   src: url("/fonts/BaselGrotesk-RegularItalic.ttf");
   font-style: italic;
+  font-weight: 400;
 }
 @font-face {
   font-family: "AE";
