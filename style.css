@@ -13,22 +13,22 @@
 }
 @font-face {
   font-family: "AB";
+  src: url("/fonts/Plain-Light.otf");
+  src: url("/fonts/Plain-Regular.otf");
   src: url("/fonts/SuisseBPIntl-Regular.otf");
   src: url("/fonts/SuisseIntl-Regular.otf");
 }
 @font-face {
   font-family: "AD";
-  src: url("/fonts/Plain-Light.otf");
-  src: url("/fonts/Plain-Regular.otf");
-  src: url("/fonts/BaselGrotesk-Regular.ttf");
-  font-style: normal;
+  src: url("/fonts/BaselGrotesk-Regular.ttf") format('truetype');
   font-weight: 400;
+  font-style: normal;
 }
 @font-face {
   font-family: "AD";
-  src: url("/fonts/BaselGrotesk-RegularItalic.ttf");
-  font-style: italic;
+  src: url("/fonts/BaselGrotesk-RegularItalic.ttf") format('truetype');
   font-weight: 400;
+  font-style: italic;
 }
 @font-face {
   font-family: "AE";
