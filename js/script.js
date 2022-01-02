@@ -30,6 +30,7 @@ const material = new THREE.MeshBasicMaterial();
 const material2 = new THREE.MeshBasicMaterial();
 
 // colors array
+
 var colorArr = [
   "#ff3030", "#a7dfff",
   "#ff9a00", "#f44336",
@@ -83,6 +84,8 @@ for (let i = 0; i <  6; i++) {
   arrMaterials[i].polygonOffset = true;
   arrMaterials[i].polygonOffsetFactor = -0.3;
   arrMaterials[i].polygonOffsetUnits = 1;
+  //different faces colors
+  arrMaterials[i].vertexColors = THREE.FaceColors;
 }
 
 
@@ -324,6 +327,7 @@ function changeCol() {
   //for loop change colors
   let colArrShuffle = colorArr;
   shuffle(colArrShuffle);
+  let cubeFcs = arrCube[0];
 
   for (let i = 0; i <  arrCube.length; i++) {
     let colRnd = parseInt ( colArrShuffle[i].replace("#","0x"), 16 );
@@ -338,6 +342,25 @@ function changeCol() {
     arrCube[i].position.x += rndCoordinates();
     arrCube[i].position.y += rndCoordinates();
     arrCube[i].position.z += rndCoordinates();
+
+
+    //test random faces FaceColors -- WORKS OK 20220102
+    /*
+    cubeFcs = arrCube[i];
+    let colArrShuffleFcs = colorArr;
+    shuffle(colArrShuffleFcs);
+    console.log("lci sono " + cubeFcs.geometry.faces.length + " facce");
+    let indexCol = 0;
+    for (let fcs = 0; fcs < cubeFcs.geometry.faces.length; fcs = fcs + 2) {
+      let colRndFcs = parseInt ( colArrShuffleFcs[indexCol].replace("#","0x"), 16 );
+      cubeFcs.geometry.faces[fcs].color.setHex(colRndFcs);
+      cubeFcs.geometry.faces[fcs + 1].color.setHex(colRndFcs);
+      cubeFcs.material.needsUpdate = true;
+      cubeFcs.geometry.colorsNeedUpdate = true;
+      indexCol ++;
+      console.log("la faccia " + fcs + "è: "+ colRndFcs);
+    }
+    */
   }
 
 }

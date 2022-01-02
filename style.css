@@ -233,13 +233,13 @@ a {
 h5.didascalia {
   font-size: 1.3rem;
   margin-bottom: var(--baseline);
-  font-size: .85rem;
+  font-size: .9rem;
   line-height: calc(var(--baseline) / 1.5);
   font-weight: 500;
 }
 .title-proj {
-  font-style: italic;
-  font-weight: 400;
+  /*font-style: italic;
+  font-weight: 400;*/
 }
 .ico {
   line-height: 0;
