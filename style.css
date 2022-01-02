@@ -26,6 +26,12 @@
 }
 @font-face {
   font-family: "AD";
+  src: url("/fonts/BaselGrotesk-Book.ttf") format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: "AD";
   src: url("/fonts/BaselGrotesk-RegularItalic.ttf") format('truetype');
   font-weight: 400;
   font-style: italic;
@@ -229,10 +235,11 @@ h5.didascalia {
   margin-bottom: var(--baseline);
   font-size: .85rem;
   line-height: calc(var(--baseline) / 1.5);
-  font-weight: 400;
+  font-weight: 500;
 }
 .title-proj {
   font-style: italic;
+  font-weight: 400;
 }
 .ico {
   line-height: 0;
