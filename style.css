@@ -96,6 +96,7 @@ body
     font-size: 1rem;
     font-size: var(base-font-size);
     word-spacing:0.001em;
+    font-weight: 400;
     line-height: var(--baseline);
     background: var(--bg-white);
     color: var(--text-black);
@@ -228,6 +229,7 @@ h5.didascalia {
   margin-bottom: var(--baseline);
   font-size: .85rem;
   line-height: calc(var(--baseline) / 1.5);
+  font-weight: 400;
 }
 .title-proj {
   font-style: italic;
