@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
 @font-face {
   font-family: "AC";
   src: url("/fonts/UniversNextProRegular.ttf");
@@ -98,6 +99,7 @@ body
     font-family: "AG",sans-serif !important;
     font-family: "AH",sans-serif !important;
     font-family: "AD",sans-serif !important;
+    font-family: 'Inter', sans-serif !important;
     font-kerning:normal;
     font-size: 1rem;
     font-size: var(base-font-size);
@@ -238,7 +240,7 @@ h5.didascalia {
   font-weight: 500;
 }
 .no-br {
-  white-space: nowrap; 
+  white-space: nowrap;
 }
 .title-proj {
   /*font-style: italic;
@@ -342,6 +344,7 @@ h5.didascalia {
     display: grid;
     grid-template-columns: 1fr 1fr;
     background: var(--bg-white);
+    background-color: var(--bg-selection-text);
     column-gap: var(--margin-page);
     padding: calc(var(--margin-page) * 2) var(--margin-page);
     position: fixed;
