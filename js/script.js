@@ -314,7 +314,7 @@ document.querySelectorAll(".my-btn").forEach(trigger => {
 
 function changeCol() {
   //
-  console.log("cliccato");
+  //console.log("cliccato");
   //cube1.material.color = new THREE.Color(0x4f48e2 * Math.random());
   //cube1.material.color = new THREE.Color(0x4f48e2);
   //cube1.material.needsUpdate = true;

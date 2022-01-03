@@ -62,7 +62,42 @@
   src: url("/fonts/AktivGrotesk_Trial_Md.ttf");
   src: url("/fonts/ESAllianz-Regular-Trial.otf");
 }
-
+@font-face {
+  font-family: "BE";
+  src: url("/fonts/BeausiteClassicClear.ttf") format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "BE";
+  src: url("/fonts/BeausiteClassicRegular.ttf") format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: "BSUIS";
+  src: url("/fonts/SuisseIntl-Regular.otf") format('opentype');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "BSUIS";
+  src: url("/fonts/SuisseIntl-Book.otf") format('opentype');
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: "DIA";
+  src: url("/fonts/ABCDiatype-Light-Trial.otf") format('opentype');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "DIA";
+  src: url("/fonts/ABCDiatype-Regular-Trial.otf") format('opentype');
+  font-weight: 500;
+  font-style: normal;
+}
 :root {
   --margin-page: .75rem;
   --base-font-size: 16px;
@@ -91,7 +126,7 @@
 html,
 body
 {
-    background: white;
+    /*background: white;*/
     font-family: "helvetica",sans-serif !important;
     font-family: "AC","Arial",sans-serif !important;
     font-family: "AE",sans-serif !important;
@@ -100,6 +135,9 @@ body
     font-family: "AH",sans-serif !important;
     font-family: "AD",sans-serif !important;
     font-family: 'Inter', sans-serif !important;
+    font-family: "BE", sans-serif !important;
+    font-family: "BSUIS", sans-serif !important;
+    font-family: "DIA", sans-serif !important;
     font-kerning:normal;
     font-size: 1rem;
     font-size: var(base-font-size);
