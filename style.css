@@ -98,6 +98,18 @@
   font-weight: 500;
   font-style: normal;
 }
+@font-face {
+  font-family: "UNI";
+  src: url("/fonts/NeueHaasUnica-Light.ttf") format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "UNI";
+  src: url("/fonts/NeueHaasUnica-Regular.ttf") format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
 :root {
   --margin-page: .75rem;
   --base-font-size: 16px;
@@ -138,6 +150,7 @@ body
     font-family: "BE", sans-serif !important;
     font-family: "BSUIS", sans-serif !important;
     font-family: "DIA", sans-serif !important;
+    font-family: "UNI", sans-serif !important;
     font-kerning:normal;
     font-size: 1rem;
     font-size: var(base-font-size);
