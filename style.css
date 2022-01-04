@@ -396,8 +396,8 @@ h5.didascalia {
     bottom: 0;
     left: 0;
     width: 100%;
-    transition: all .2s ease;
-    transform: translateY(100%);
+    transition: all .3s ease;
+    transform: translateY(200%);
   }
   .show-mob-note {
     transform: translateY(0);
