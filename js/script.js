@@ -390,7 +390,7 @@ function shuffle(a) {
 }
 
 function rndSizeCube(){
-  var varRnd = Math.random() * (.6) + .2;
+  var varRnd = Math.random() * (.7) + .2;
   //console.log("la coordinata di ridimensionamento è: " + varRnd );
   return varRnd;
 }
