@@ -474,7 +474,7 @@ h5.didascalia {
     background: var(--bg-white);
     background-color: var(--bg-selection-text);
     column-gap: var(--margin-page);
-    padding: calc(var(--margin-page) * 2) var(--margin-page);
+    padding: calc(var(--margin-page) * 2);
     position: fixed;
     bottom: 0;
     left: 0;
