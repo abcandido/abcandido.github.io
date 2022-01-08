@@ -514,7 +514,7 @@ h5.didascalia {
   }
   .link-e {
     text-decoration: underline;
-    text-underline-offset: 0;
+    text-underline-offset: 0.1;
     text-decoration-thickness: 0.07em;
   }
   .note-ref {
