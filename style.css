@@ -490,9 +490,9 @@ h5.didascalia {
     grid-row: 1;
     grid-column: 1 / span 2;
     margin-bottom:  calc(var(--margin-page) * 2);
-    margin-left: 2rem;
+    margin-left: 3rem;
     box-sizing: border-box;
-    width: calc(100% - 2rem);
+    width: calc(100% - 3rem);
 
   }
   .note-active-mob {
@@ -505,10 +505,10 @@ h5.didascalia {
     grid-column: 1 / span 2;
   }
   .note-mob-info .paragraph {
-    width: 2rem;
+    width: 3rem;
   }
   .note-mob-info .didascalia {
-    width: calc(100% - 2rem);
+    width: calc(100% - 3rem);
   }
   .full-with-info {
     grid-column: 1 / span 2;
