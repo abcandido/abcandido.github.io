@@ -44,7 +44,17 @@ var colorArr = [
   "#feda75", "#e3ac72",
   "#ff7f50", "#f4cccc",
   "#3aa9ae", "#2acaea",
-  "#ffd700", "#00b2ee"];
+  "#ffd700", "#00b2ee",
+  "#7d6056", "#c89e8e",
+  "#eb6d43", "#f5c551",
+  "#8d8bb6", "#74c1b1",
+  "#d88746", "#606bac",
+  "#c56971", "#6b4e78",
+  "#a4bf55", "#e1a849",
+  "#479050", "#569b58",
+  "#b5474e", "#e7ca42",
+  "#bf669c", "#328ea5",
+  "#2d52a6", "#e95175"];
 
 //test material
 const material3 = new THREE.MeshStandardMaterial();
@@ -301,6 +311,13 @@ function onDocumentMouseMove(e){
   mouseY = (e.clientY - windowY);
 }
 
+//scale variable
+let scaleSize = 1;
+let sBtn = document.querySelectorAll(".s-btn");
+let mBtn = document.querySelectorAll(".m-btn");
+let lBtn = document.querySelectorAll(".l-btn");
+let xlBtn = document.querySelectorAll(".xl-btn");
+let btnS = document.querySelectorAll(".scale-btn");
 
 //click function
 //document.getElementById("myBtn").addEventListener("click", changeCol);
@@ -310,7 +327,46 @@ document.querySelectorAll(".my-btn").forEach(trigger => {
  document.querySelectorAll(".w-btn").forEach(trigger => {
    trigger.addEventListener('click',restoreCol);
   });
+
+  sBtn.forEach(trigger => {trigger.addEventListener('click',setSsize)});
+  mBtn.forEach(trigger => {trigger.addEventListener('click',setMsize)});
+  lBtn.forEach(trigger => {trigger.addEventListener('click',setLsize)});
+  xlBtn.forEach(trigger => {trigger.addEventListener('click',setXLsize)});
 //document.getElementById("wBtn").addEventListener("click", restoreCol);
+
+function setSsize(){
+    scaleSize = 0.5;
+    btnS.forEach(trigger => {trigger.classList.remove("active-scale")});
+    sBtn.forEach(trigger => {trigger.classList.add("active-scale")});
+    for (let i = 0; i <  arrCube.length; i++) {
+      arrCube[i].scale.set(scaleSize, scaleSize, scaleSize);
+    }
+
+}
+function setMsize(){
+  scaleSize = 1;
+  btnS.forEach(trigger => {trigger.classList.remove("active-scale")});
+  mBtn.forEach(trigger => {trigger.classList.add("active-scale")});
+  for (let i = 0; i <  arrCube.length; i++) {
+    arrCube[i].scale.set(scaleSize, scaleSize, scaleSize);
+  }
+}
+function setLsize(){
+  scaleSize = 2;
+  btnS.forEach(trigger => {trigger.classList.remove("active-scale")});
+  lBtn.forEach(trigger => {trigger.classList.add("active-scale")});
+  for (let i = 0; i <  arrCube.length; i++) {
+    arrCube[i].scale.set(scaleSize, scaleSize, scaleSize);
+  }
+}
+function setXLsize(){
+  scaleSize = 3.5;
+  btnS.forEach(trigger => {trigger.classList.remove("active-scale")});
+  xlBtn.forEach(trigger => {trigger.classList.add("active-scale")});
+  for (let i = 0; i <  arrCube.length; i++) {
+    arrCube[i].scale.set(scaleSize, scaleSize, scaleSize);
+  }
+}
 
 function changeCol() {
   //
@@ -325,6 +381,8 @@ function changeCol() {
   //cube1.scale.set(randX, randY, randZ)
 
   //for loop change colors
+  //let scale = scaleVar;
+
   let colArrShuffle = colorArr;
   shuffle(colArrShuffle);
   let cubeFcs = arrCube[0];
@@ -338,7 +396,7 @@ function changeCol() {
     randX = Math.random() * (1.4 - .6) + .6;
     randY = Math.random() * (1.4 - .6) + .6;
     randZ = Math.random() * (1.4 - .6) + .6;
-    arrCube[i].scale.set(randX, randY, randZ);
+    arrCube[i].scale.set(randX * scaleSize, randY * scaleSize, randZ * scaleSize);
     arrCube[i].position.x += rndCoordinates();
     arrCube[i].position.y += rndCoordinates();
     arrCube[i].position.z += rndCoordinates();
@@ -366,6 +424,7 @@ function changeCol() {
 }
 
 function restoreCol() {
+  setMsize();
   for (let i = 0; i <  arrCube.length; i++) {
     arrCube[i].material.color = new THREE.Color(0xf4f4f4);
     arrCube[i].material.needsUpdate = true;

@@ -46,6 +46,7 @@
   src: url("/fonts/BeausiteClassicWebTrial-Regular.woff2");
   src: url("/fonts/BeausiteClassicWebTrial-Clear.woff2");
   src: url("/fonts/MaisonNeue-Book.otf");
+  src: url("/fonts/UniversNextProRegular.ttf");
 }
 @font-face {
   font-family: "AF";
@@ -89,13 +90,13 @@
 @font-face {
   font-family: "DIA";
   src: url("/fonts/ABCDiatype-Light-Trial.otf") format('opentype');
-  font-weight: 400;
+  font-weight: 300;
   font-style: normal;
 }
 @font-face {
   font-family: "DIA";
   src: url("/fonts/ABCDiatype-Regular-Trial.otf") format('opentype');
-  font-weight: 500;
+  font-weight: 400;
   font-style: normal;
 }
 @font-face {
@@ -112,21 +113,47 @@
 }
 @font-face {
   font-family: "PLN";
-  src: url("/fonts/Plain-Regular.otf") format('opentype');
+  src: url("/fonts/RiformaLL-Medium.otf") format('opentype');
   font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "UNI-M";
+  src: url("/fonts/NeueHaasUnica-Medium.ttf") format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "DIA-M";
+  src: url("/fonts/ABCDiatype-Medium.otf") format('opentype');
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: "DIA-M";
+  src: url("/fonts/ABCDiatype-Regular.otf") format('opentype');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "DIA-M";
+  src: url("/fonts/ABCDiatype-Light.otf") format('opentype');
+  font-weight: 300;
   font-style: normal;
 }
 :root {
   --margin-page: .75rem;
-  --base-font-size: 16px;
+  --base-font-size: 15px;
   --baseline: 1.5rem;
   /*--bg-white: #fefefe;*/
   --bg-white: #f2f2f2;
+  --bg-white: #f4f1f1;
   --text-black: #282828;
   --text-black: #141414;
   --link-color: #868686;
   --hidden-text: #e3e3e3;
   --bg-selection-text: #e3e3e3;
+  --bg-selection-text: #d4d4d4;
   /*--text-black: #212529;*/
 }
 ::selection {
@@ -160,9 +187,12 @@ body
     font-family: "BSUIS", sans-serif !important;
     font-family: "DIA", sans-serif !important;
     font-family: "UNI", sans-serif !important;
+    font-family: "PLN", sans-serif !important;
+    font-family: "DIA-M", sans-serif !important;
+    font-family: "AD",sans-serif !important;
     font-kerning:normal;
-    font-size: 1rem;
-    font-size: var(base-font-size);
+    /*font-size: 1rem;*/
+    font-size: var(--base-font-size);
     word-spacing:0.001em;
     font-weight: 400;
     line-height: var(--baseline);
@@ -205,7 +235,9 @@ a {
     width: 100%;
     z-index: auto;
 }
-
+.hidden {
+  display: none;
+}
 .head-menu {
   position: fixed;
   bottom: 0;
@@ -232,7 +264,11 @@ a {
 
 }
 .ctrls-3d div:hover {
-  text-decoration: underline;
+  text-decoration: none;
+  text-underline-offset: 0.1em;
+  text-decoration-thickness: 0.07em;
+  color: var(--bg-white);
+  background: var(--text-black);
 }
 .controls-test {
   position: absolute;
@@ -251,6 +287,7 @@ a {
 .main-content-home .paragraph {
   grid-column: 1 / span 8;
   font-size: 2.4rem;
+  font-size: 2.8rem;
   line-height: calc(var(--baseline) * 2);
   letter-spacing: -0.015em;
   width: 100%;
@@ -267,11 +304,16 @@ a {
   grid-template-columns: repeat(1, 1fr);
   column-gap: var(--margin-page);
   grid-template-rows: masonry;
+  position: relative;
+}
+.notes-wrapper {
+  position: relative;
+  width: 100%;
 }
 h5.didascalia {
-  font-size: 1.4rem;
+  font-size: 1.3rem;
   margin-bottom: var(--baseline);
-  font-size: 1.28rem;
+  font-size: 1.2rem;
   line-height: calc(var(--baseline));
 }
 .no-br {
@@ -288,7 +330,15 @@ h5.didascalia {
 .link-e {
   text-decoration: underline;
   text-underline-offset: 0.1em;
-  text-decoration-thickness: 0.08em;
+  text-decoration-thickness: 0.07em;
+}
+.link-contacts{
+  text-decoration: none;
+}
+.link-contacts:hover {
+  text-decoration: underline;
+  text-underline-offset: 0.1em;
+  text-decoration-thickness: 0.07em;
 }
 .ref-text,
 .h-text {
@@ -326,10 +376,21 @@ h5.didascalia {
   text-decoration: none;
 }
 .note {
-  display: none;
+  /*display: none;*/
+  opacity: 0;
+  position: fixed;
+  padding-right: var(--margin-page);
+  /*transform: translateX(20%);
+  transform: translateY(-20%);*/
+  transform: translate(20%, 0);
+  transition: all 0.2s ease-out;
 }
 .show-note {
-  display: block;
+  /*display: block;*/
+  opacity: 1;
+  /*transform: translateX(0);
+  transform: translateY(0);*/
+  transform: translate(0, 0);
 }
 .note-mob-info {
   display: none;
@@ -341,12 +402,26 @@ h5.didascalia {
   width: auto;
   margin-right: calc( var(--margin-page) * 2);
 }
+.active-scale {
+  text-decoration: underline;
+  text-underline-offset: 0.1em;
+  text-decoration-thickness: 0.07em;
+}
 
 /*mobile*/
 @media only screen and (max-width: 600px) {
-  .h-text {
+  *:hover {
     background: inherit;
     color: inherit;
+    text-decoration: inherit;
+  }
+  .h-text, .link-e, .show-h-text {
+    background: inherit;
+    color: inherit;
+  }
+  .ctrls-3d div {
+    font-size: 1.1rem;
+
   }
   .note-mob-info {
     display: block;
@@ -364,6 +439,7 @@ h5.didascalia {
   .main-content-home .paragraph {
     grid-column: 1 / span 4;
     font-size: 1.55rem;
+    font-size: 1.65rem;
     line-height: calc(var(--baseline) * 1.3);
     letter-spacing: -0.015em;
     width: 100%;
@@ -401,10 +477,31 @@ h5.didascalia {
   }
   .show-mob-note {
     transform: translateY(0);
+    opacity: 1;
+  }
+  .note img {
+    grid-row: 1;
+    grid-column: 1 / span 2;
+    margin-bottom:  calc(var(--margin-page) * 2);
+    margin-left: 2rem;
+    box-sizing: border-box;
+    width: calc(100% - 2rem);
+
   }
   .note-active-mob {
+    grid-row: 2;
     color: var(--bg-white);
     background: var(--text-black);
+  }
+  .note-mob-info {
+    display: flex;
+    grid-column: 1 / span 2;
+  }
+  .note-mob-info .paragraph {
+    width: 2rem;
+  }
+  .note-mob-info .didascalia {
+    width: calc(100% - 2rem);
   }
   .full-with-info {
     grid-column: 1 / span 2;
@@ -414,5 +511,13 @@ h5.didascalia {
     margin-bottom: 0;
     font-size: 1rem;
     line-height: calc(var(--baseline) / 1.5);
+  }
+  .link-e {
+    text-decoration: underline;
+    text-underline-offset: 0;
+    text-decoration-thickness: 0.07em;
+  }
+  .note-ref {
+    cursor: auto;
   }
 }
