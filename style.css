@@ -434,7 +434,7 @@ h5.didascalia {
     display: none;
   }
   .main-content-home {
-    margin: var(--margin-page);
+    margin: calc(2 * var(--margin-page));
     grid-template-columns: repeat(4, 1fr);
     column-gap: var(--margin-page);
     row-gap: var(--margin-page);
