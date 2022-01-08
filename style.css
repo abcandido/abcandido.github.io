@@ -422,10 +422,12 @@ h5.didascalia {
   .ctrls-3d div {
     font-size: 1.1rem;
     background: var(--bg-white);
+    background: transparent;
   }
   .ctrls-3d div:hover {
     color: var(--text-black);
     background: var(--bg-white);
+    background: transparent;
   }
   .note-mob-info {
     display: block;

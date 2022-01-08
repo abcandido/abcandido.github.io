@@ -267,7 +267,15 @@ window.addEventListener('resize', () =>
 const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height, 0.1, 100)
 camera.position.x = 0
 camera.position.y = 0
-camera.position.z = 2
+camera.position.z = 2.4
+//add more distance on mobile
+if(window.innerWidth < 600){
+  camera.position.z = 4;
+}
+//fish eye lens
+camera.fov = 50
+camera.updateProjectionMatrix();
+
 scene.add(camera)
 
 // Controls
