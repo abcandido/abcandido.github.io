@@ -421,7 +421,11 @@ h5.didascalia {
   }
   .ctrls-3d div {
     font-size: 1.1rem;
-
+    background: var(--bg-white);
+  }
+  .ctrls-3d div:hover {
+    color: var(--text-black);
+    background: var(--bg-white);
   }
   .note-mob-info {
     display: block;
@@ -514,10 +518,11 @@ h5.didascalia {
   }
   .link-e {
     text-decoration: underline;
-    text-underline-offset: 0.1;
+    text-underline-offset: 0.1em;
     text-decoration-thickness: 0.07em;
   }
   .note-ref {
     cursor: auto;
   }
+
 }
