@@ -118,6 +118,18 @@
   font-style: normal;
 }
 @font-face {
+  font-family: "PLEN";
+  src: url("/fonts/Plain-Regular.otf") format('opentype');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "REND";
+  src: url("/fonts/Rand-Regular.otf") format('opentype');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
   font-family: "UNI-M";
   src: url("/fonts/NeueHaasUnica-Medium.ttf") format('truetype');
   font-weight: 400;
@@ -139,6 +151,18 @@
   font-family: "DIA-M";
   src: url("/fonts/ABCDiatype-Light.otf") format('opentype');
   font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: "MON";
+  src: url("/fonts/MonumentGrotesk-Regular.otf") format('opentype');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "MON";
+  src: url("/fonts/MonumentGrotesk-Medium.otf") format('opentype');
+  font-weight: 500;
   font-style: normal;
 }
 :root {
@@ -191,11 +215,13 @@ body
     font-family: "PLN", sans-serif !important;
     font-family: "DIA-M", sans-serif !important;
     font-family: "AD",sans-serif !important;
+    font-family: "MON",sans-serif !important;
+    /*font-family: "PLEN",sans-serif !important;*/
     font-kerning:normal;
     /*font-size: 1rem;*/
     font-size: var(--base-font-size);
     word-spacing:0.001em;
-    font-weight: 500;
+    font-weight: 400;
     line-height: var(--baseline);
     background: var(--bg-white);
     color: var(--text-black);
@@ -204,7 +230,10 @@ body
     text-rendering:optimizeLegibility !important;
 }
 h1, h2, h3, h4 ,h5 {
-  font-weight: 500;
+  font-weight: 400;
+}
+@media only screen and (min-width: 601px) {
+
 }
 @media only screen and (max-width: 600px) {
   :root {
@@ -218,7 +247,7 @@ h1, h2, h3, h4 ,h5 {
     /*--text-black: #212529;*/
   }
 }
-img {
+img, video {
   max-width: 100%;
   border-radius: .5rem;
 }
@@ -486,7 +515,8 @@ h5.didascalia {
     transform: translateY(0);
     opacity: 1;
   }
-  .note img {
+  .note img,
+  .note video {
     grid-row: 1;
     grid-column: 1 / span 2;
     margin-bottom:  calc(var(--margin-page) * 2);
