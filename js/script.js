@@ -612,6 +612,16 @@ fetch('https://api.openweathermap.org/data/2.5/weather?id=3181495&appid=bcaf9c31
   console.log(milanTime);
   //console.log("ora: " + milanTime.getHours());
 
+  //meteo emoji
+  var weatherFace = document.querySelector('.weather-visualization');
+  if(temperatureMilan < 10){
+    weatherFace.innerHTML = '🥶';
+  }else if (temperatureMilan < 20) {
+    weatherFace.innerHTML = '😎';
+  } else {
+    weatherFace.innerHTML = '🥵';
+  }
+
 })
 .catch(err => console.log(err))
 
@@ -628,8 +638,8 @@ function windTheClock(timeZoneOffset)
     var m = d.getMinutes();
     var s = d.getSeconds();
     var ampm = h >= 12 ? 'pm' : 'am';
-    h = h % 12;
-    h = h ? h : 12; // replace '0' w/ '12'
+    //h = h % 12;
+    //h = h ? h : 12; // replace '0' w/ '12'
     h = addLeadingZero(h);
     m = addLeadingZero(m);
     s = addLeadingZero(s);
@@ -638,15 +648,16 @@ function windTheClock(timeZoneOffset)
     let hrsVar = String(h);
     let minVar = String(m);
     let secVar = String(s);
-    timeContainer.querySelector(".hrs").innerHTML = h;
-    timeContainer.querySelector(".min").innerHTML = m;
-    timeContainer.querySelector(".sec").innerHTML = s;
+    //+ ' <span class="ampm">' + ampm + '</span>'
+    //timeContainer.querySelector(".hrs").innerHTML = h;
+    //timeContainer.querySelector(".min").innerHTML = m;
+    //timeContainer.querySelector(".sec").innerHTML = s;
     //timeContainer.querySelector(".hrs").querySelector(".unit").innerHTML = hrsVar.charAt(1);
     //timeContainer.querySelector(".min").querySelector(".dec").innerHTML = minVar.charAt(0);
     //timeContainer.querySelector(".min").querySelector(".unit").innerHTML = minVar.charAt(1);
     //timeContainer.querySelector(".sec").querySelector(".dec").innerHTML = secVar.charAt(0);
     //timeContainer.querySelector(".sec").querySelector(".unit").innerHTML = secVar.charAt(1);
-    timeContainer.querySelector(".pmam").innerHTML = ampm;
+    timeContainer.innerHTML = 'Milan ' + h + ':' + m ;
 
     setTimeout(function(){ windTheClock(timeZoneOffset) }, 1000);
 }

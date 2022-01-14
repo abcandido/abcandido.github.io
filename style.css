@@ -308,8 +308,19 @@ a {
   font-size: 1.4rem;
 }
 
-.time {
+.time, .weather {
   display: flex;
+  margin-right: .5em;
+}
+.weather {
+  margin-right: 0;
+}
+.weather-visualization {
+  display: none;
+}
+
+.ampm {
+  text-transform: uppercase;
 }
 .time .hrs,
 .time .min,
@@ -418,7 +429,7 @@ h5.didascalia {
 }
 .hover-h-text:hover .show-h-text {
   color: var(--bg-white);
-  background: var(--text-black);
+  /*background: var(--text-black);*/
   text-decoration: none;
 }
 .note-ref {
@@ -493,11 +504,15 @@ h5.didascalia {
     font-size: 1.1rem;
     background: var(--bg-white);
     background: transparent;
+    margin-right: .7em;
   }
   .ctrls-3d div:hover {
     color: var(--text-black);
     background: var(--bg-white);
     background: transparent;
+  }
+  .clock-wrapper {
+      font-size: 1.1rem;
   }
   .note-mob-info {
     display: block;
@@ -519,6 +534,8 @@ h5.didascalia {
     line-height: calc(var(--baseline) * 1.3);
     letter-spacing: -0.015em;
     width: 100%;
+    font-size: 1.5rem;
+    line-height: calc(var(--baseline) * 1.2);
   }
   .main-content-home .paragraph sup {
     line-height: 0;
