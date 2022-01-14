@@ -16,6 +16,7 @@ const scene = new THREE.Scene()
 
 // Objects
 const geometry = new THREE.BoxGeometry( rndSizeCube(), rndSizeCube(), rndSizeCube() );
+
 //const geometry2 = new THREE.BoxGeometry( .5, .2, 1 );
 //const geometry3 = new THREE.BoxGeometry( .2, 1.5, .2 );
 const geometry2 = new THREE.BoxGeometry( rndSizeCube(), rndSizeCube(), rndSizeCube() );
@@ -588,4 +589,68 @@ for(let i = 0; i < arrNoteRef.length; i++){
   }
 
 
+}
+
+
+
+//weather app
+
+var tempContainer = document.querySelector('.weather');
+var timeContainer = document.querySelector('.time');
+
+fetch('https://api.openweathermap.org/data/2.5/weather?id=3181495&appid=bcaf9c31edd9e8921ce40801310ae53f')
+.then(response => response.json())
+.then(data => {
+  console.log(data)
+  var temperatureMilan = data['main']['temp'];
+  temperatureMilan = Math.round((temperatureMilan - 273.15) * 1) / 1;
+  tempContainer.innerHTML = temperatureMilan;
+
+  //time milanTime
+  var milanTime = new Date(data.dt*1000+(data.timezone));
+  //timeContainer.innerHTML = milanTime;
+  console.log(milanTime);
+  //console.log("ora: " + milanTime.getHours());
+
+})
+.catch(err => console.log(err))
+
+//time milanTime
+function addLeadingZero(n) {
+    return n < 10 ? '0' + n : n;
+}
+
+function windTheClock(timeZoneOffset)
+{
+    var d = new Date();
+    d.setHours(d.getUTCHours() + timeZoneOffset); // set time zone offset
+    var h = d.getHours();
+    var m = d.getMinutes();
+    var s = d.getSeconds();
+    var ampm = h >= 12 ? 'pm' : 'am';
+    h = h % 12;
+    h = h ? h : 12; // replace '0' w/ '12'
+    h = addLeadingZero(h);
+    m = addLeadingZero(m);
+    s = addLeadingZero(s);
+
+    //timeContainer.querySelector("").innerHTML = h + ':' + m + ':' + s + ' ' + ampm;
+    let hrsVar = String(h);
+    let minVar = String(m);
+    let secVar = String(s);
+    timeContainer.querySelector(".hrs").innerHTML = h;
+    timeContainer.querySelector(".min").innerHTML = m;
+    timeContainer.querySelector(".sec").innerHTML = s;
+    //timeContainer.querySelector(".hrs").querySelector(".unit").innerHTML = hrsVar.charAt(1);
+    //timeContainer.querySelector(".min").querySelector(".dec").innerHTML = minVar.charAt(0);
+    //timeContainer.querySelector(".min").querySelector(".unit").innerHTML = minVar.charAt(1);
+    //timeContainer.querySelector(".sec").querySelector(".dec").innerHTML = secVar.charAt(0);
+    //timeContainer.querySelector(".sec").querySelector(".unit").innerHTML = secVar.charAt(1);
+    timeContainer.querySelector(".pmam").innerHTML = ampm;
+
+    setTimeout(function(){ windTheClock(timeZoneOffset) }, 1000);
+}
+
+window.onload = function() {
+    windTheClock(1);
 }
