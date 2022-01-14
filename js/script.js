@@ -603,7 +603,6 @@ fetch('https://api.openweathermap.org/data/2.5/weather?id=3181495&appid=bcaf9c31
 .then(data => {
   //console.log(data)
   var temperatureMilan = data['main']['temp'];
-  window.onload = function() {
 
     temperatureMilan = Math.round((temperatureMilan - 273.15) * 1) / 1;
     tempContainer.innerHTML = temperatureMilan;
@@ -623,7 +622,6 @@ fetch('https://api.openweathermap.org/data/2.5/weather?id=3181495&appid=bcaf9c31
     } else {
       weatherFace.innerHTML = '🥵';
     }
- }
 })
 .catch(err => console.log(err))
 
