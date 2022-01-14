@@ -601,27 +601,29 @@ var timeContainer = document.querySelector('.time');
 fetch('https://api.openweathermap.org/data/2.5/weather?id=3181495&appid=bcaf9c31edd9e8921ce40801310ae53f')
 .then(response => response.json())
 .then(data => {
-  console.log(data)
+  //console.log(data)
   var temperatureMilan = data['main']['temp'];
-  temperatureMilan = Math.round((temperatureMilan - 273.15) * 1) / 1;
-  tempContainer.innerHTML = temperatureMilan;
+  window.onload = function() {
 
-  //time milanTime
-  var milanTime = new Date(data.dt*1000+(data.timezone));
-  //timeContainer.innerHTML = milanTime;
-  console.log(milanTime);
-  //console.log("ora: " + milanTime.getHours());
+    temperatureMilan = Math.round((temperatureMilan - 273.15) * 1) / 1;
+    tempContainer.innerHTML = temperatureMilan;
 
-  //meteo emoji
-  var weatherFace = document.querySelector('.weather-visualization');
-  if(temperatureMilan < 10){
-    weatherFace.innerHTML = '🥶';
-  }else if (temperatureMilan < 20) {
-    weatherFace.innerHTML = '😎';
-  } else {
-    weatherFace.innerHTML = '🥵';
-  }
+    //time milanTime
+    var milanTime = new Date(data.dt*1000+(data.timezone));
+    //timeContainer.innerHTML = milanTime;
+    console.log(milanTime);
+    //console.log("ora: " + milanTime.getHours());
 
+    //meteo emoji
+    var weatherFace = document.querySelector('.weather-visualization');
+    if(temperatureMilan < 10){
+      weatherFace.innerHTML = '🥶';
+    }else if (temperatureMilan < 20) {
+      weatherFace.innerHTML = '😎';
+    } else {
+      weatherFace.innerHTML = '🥵';
+    }
+ }
 })
 .catch(err => console.log(err))
 
