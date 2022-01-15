@@ -550,6 +550,11 @@ h5.didascalia {
     pointer-events: none;
     z-index: 9;
   }
+  .link-contacts {
+    text-decoration: underline;
+    text-underline-offset: 0.1em;
+    text-decoration-thickness: 0.07em;
+  }
   .show-block-note {
     display: block;
     pointer-events: all;
