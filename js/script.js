@@ -657,7 +657,9 @@ function windTheClock(timeZoneOffset)
     //timeContainer.querySelector(".min").querySelector(".unit").innerHTML = minVar.charAt(1);
     //timeContainer.querySelector(".sec").querySelector(".dec").innerHTML = secVar.charAt(0);
     //timeContainer.querySelector(".sec").querySelector(".unit").innerHTML = secVar.charAt(1);
-    timeContainer.innerHTML = 'Milan ' + h + ':' + m ;
+    timeContainer.querySelector(".hh").innerHTML = h;
+    timeContainer.querySelector(".mm").innerHTML = m;
+    //timeContainer.innerHTML = 'Milan ' + h + '<span class="blinking-dots">:</span>' + m ;
 
     setTimeout(function(){ windTheClock(timeZoneOffset) }, 1000);
 }
