@@ -786,6 +786,10 @@ h5.didascalia {
   .right-align-des {
     text-align: right;
   }
+  .pixelated-hover-img:hover {
+    opacity: 1;
+  }
+  
 }
 .grid-page {
   width: 100%;
@@ -899,9 +903,6 @@ footer {
   opacity: 0;
   transition: opacity .1s ease;
   image-rendering: pixelated;
-}
-.pixelated-hover-img:hover {
-  opacity: 1;
 }
 
 .about-section {
