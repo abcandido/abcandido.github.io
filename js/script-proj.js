@@ -131,7 +131,6 @@ var optionsPlayer = {
 lazyLoadVideo.forEach(entry => {
   var player = new Vimeo.Player(entry,optionsPlayer);
   player.setVolume(0);
-  player.pause();
   player.play();
 });
 
