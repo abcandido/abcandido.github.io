@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/jpg" href="favicon.jpg">
+    <title>Alberto Candido</title>
+    <meta name="description" content="visual designer and developer based in Milan.">
+    <link rel="stylesheet" href="style-home-2.css">
+    <script src="js/three.min.js"></script>
+    <script type="text/javascript" src="js/dat.gui.min.js"></script>
+    <script src="https://unpkg.com/scrollreveal"></script>
+  </head>
+  <body>
+    <canvas class="webgl"></canvas>
+    <header class="top-header">
+      <div class="name-home"><a href="#" class="header-item">Alberto Candido</a></div>
+      <div class="menu-items">
+        <a href="#" class="header-item">Archive</a>
+        <a href="#" class="header-item">Information</a>
+      </div>
+    </header>
+    <header class="head-menu">
+      <div class="ctrls-3d">
+        <div class="s-btn scale-btn">S</div>
+        <div class="m-btn active-scale scale-btn">M</div>
+        <div class="l-btn scale-btn">L</div>
+        <div class="xl-btn scale-btn hidden">XL</div>
+        <div class="my-btn scale-btn"><img class="swatch-btn" src="/assets/imgs/swatch-col.png" alt="Shuffle"></div>
+        <div class="w-btn scale-btn"><img class="swatch-btn" src="/assets/imgs/swatch-bn.png" alt="Reset"></div>
+        <div style="display:none;"><a href="/pages/test.html">GO</a></div>
+      </div>
+        <div class="clock-wrapper mob-hidden">
+          <div class="time">
+            <span class="city">Milan</span>
+            <span class="hh"></span>
+            <span class="blinking-dots">:</span>
+            <span class="mm"></span>
+          </div>
+          <div class="weather"></div>
+          <div class="weather-visualization"></div>
+        </div>
+    </header>
+    <section class="proj-section hidden" id="main-project-section">
+      <header class="proj-section-header page-width">
+        <h2>Recent Projects</h2>
+      </header>
+      <article class="proj-highlight-container">
+        <div class="proj-highlight">  
+          <div class="proj-highlight__media">
+                <img src="assets/imgs/note-1.jpg" alt="">
+          </div>
+          <div class="proj-highlight__content__wrap">
+            <div class="proj-highlight__content">
+              <header class="proj-highlight__header">
+                <div class="proj-highlight__header__banner">
+                  <h5>2019 — web design</h5>
+                </div>
+                <div class="proj-highlight__header__title">
+                  <h2>Archimede6.com<br>A brand new portfolio for a comunication fashion agency in Milan.</h2></div>
+              </header>
+            </div>
+          </div>
+        </div>    
+      </article>
+      <article class="proj-highlight-container">
+        <div class="proj-highlight">  
+          <div class="proj-highlight__media">
+            <a href="">
+              <figure class="proj-highlight__img-container">
+                <img src="assets/imgs/note-2.jpg" alt="">
+              </figure>
+            </a>
+          </div>
+          <div class="proj-highlight__content__wrap">
+            <div class="proj-highlight__content">
+              <header class="proj-highlight__header">
+                <div class="proj-highlight__header__banner">
+                  <h5>Speculative design, computational design</h5>
+                </div>
+                <div class="proj-highlight__header__title">
+                  <h2>The Adaptive Machine<br>A speculative installation that investigates human and design.</h2></div>
+              </header>
+            </div>
+          </div>
+        </div>    
+      </article>
+      <article class="proj-highlight-container">
+        <div class="proj-highlight">  
+          <div class="proj-highlight__media">
+            <a href="">
+              <figure class="proj-highlight__img-container">
+                <img src="assets/imgs/note-3.jpg" alt="">
+              </figure>
+            </a>
+          </div>
+          <div class="proj-highlight__content__wrap">
+            <div class="proj-highlight__content">
+              <header class="proj-highlight__header">
+                <div class="proj-highlight__header__banner">
+                  <h5>2019 — web design</h5>
+                </div>
+                <div class="proj-highlight__header__title">
+                  <h2>Archimede6.com<br>Brand new portfolio for a comunication fashion agency in Milan.</h2></div>
+              </header>
+            </div>
+          </div>
+        </div>    
+      </article>
+      <article class="proj-highlight-container">
+        <div class="proj-highlight">  
+          <div class="proj-highlight__media">
+            <a href="">
+              <figure class="proj-highlight__img-container">
+                <img src="assets/imgs/note-2.jpg" alt="">
+              </figure>
+            </a>
+          </div>
+          <div class="proj-highlight__content__wrap">
+            <div class="proj-highlight__content">
+              <header class="proj-highlight__header">
+                <div class="proj-highlight__header__banner">
+                  <h5>Web design, web developement</h5>
+                </div>
+                <div class="proj-highlight__header__title">
+                  <h2>Department Five<br>A brand new portfolio for a comunication fashion agency in Milan.</h2></div>
+              </header>
+            </div>
+          </div>
+        </div>    
+      </article>
+
+    </section>
+    <script type="module" src="js/script-home-2.js"></script>
+</body>
+</html>
