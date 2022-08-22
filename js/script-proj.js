@@ -122,6 +122,8 @@ lazyItemsBig.forEach(img => {
 
 
 
+
+/*
 var lazyLoadVideo = document.querySelectorAll(".lazy-video");
 var optionsPlayer = {
   controls: false,
@@ -133,6 +135,7 @@ lazyLoadVideo.forEach(entry => {
   player.setVolume(0);
   player.play();
 });
+*/
 
 
 /*
