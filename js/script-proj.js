@@ -52,9 +52,7 @@ if(window.innerWidth > 989 ){
 
 const lazyLoadImage = document.querySelectorAll(".lazy-img");
 const lazyLoadImageBig = document.querySelectorAll(".lazy-img-big");
-//console.log("fattoooooo");
 console.log(lazyLoadImage);
-
 
 
 let options = {
@@ -122,6 +120,39 @@ lazyItemsBig.forEach(img => {
   observerBig.observe(img);
 });
 
+
+
+var lazyLoadVideo = document.querySelectorAll(".lazy-video");
+var optionsPlayer = {
+  controls: false,
+  title: false
+};
+
+lazyLoadVideo.forEach(entry => {
+  var player = new Vimeo.Player(entry,optionsPlayer);
+  player.setVolume(0);
+  player.pause();
+  player.play();
+});
+
+
+/*
+let observerVideo = new IntersectionObserver(videoObserver, optionsBig);
+
+function videoObserver(entries, observer) {
+  entries.forEach(entry => {
+    if(entry.isIntersecting) {
+      const video = entry.target;
+      const img_src = img.dataset.src;
+      console.log("Lazy loading " + img);
+      console.log(img);
+      img.src = img_src;
+      
+      observer.unobserve(img);
+    }
+  });
+}
+/*
 
 
 
