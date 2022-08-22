@@ -9,104 +9,376 @@
     <link rel="stylesheet" href="style.css">
     <script src="js/three.min.js"></script>
     <script type="text/javascript" src="js/dat.gui.min.js"></script>
+    <script src="https://unpkg.com/scrollreveal"></script>
   </head>
   <body>
     <canvas class="webgl"></canvas>
-    <header class="head-menu">
+    <header class="top-header">
+      <div class="name-home"><a href="/index.html" class="header-item">Alberto Candido</a></div>
+      <div class="menu-items">
+        <span class="header-item mob-hidden work-btn">Work</span>
+        <a href="about.html" class="header-item">About</a>
+        <a href="archive.html" class="header-item mob-hidden">Archive</a>
+      </div>
+    </header>
+    <section class="first-section-home">
+      <div class="main-content-home">
+        <div class="first-paragraph-col">
+          <p class="paragraph">
+            Designer, developer and woodworker.
+            <br>From research, to prototyping and execution I take care of the whole design process, wether the material is tangible or not.
+            <br>Based between Milan and Amsterdam.
+          </p>
+        </div>
+        <div class="notes-section">
+          <div class="notes-wrapper">
+          <div class="note" id="note-1">
+            <div class="note-mob-info full-with-info">
+              <p class="paragraph">1.</p>
+              <h5 class="didascalia">Politecnico di Milano university, department of Communication Design.</h5>
+            </div>
+            <div class="note-des-info  mob-hidden">
+              <p class="paragraph mob-hidden">1.</p>
+              <h5 class="didascalia mob-hidden">Politecnico di Milano university, department of Communication Design.</h5>
+            </div>
+          </div>
+          <div class="note" id="note-2">
+            <img src="assets/imgs/note-3.gif" alt="">
+            <div class="note-mob-info">
+              <p class="paragraph">2.</p>
+              <h5 class="didascalia"><span class="title-proj">The Adpative Machine</span>, interactive speculative device exhibited at BASE Milano and Triennale Design Musem Milano — 2019.</h5>
+            </div>
+            <div class="note-des-info mob-hidden">
+              <p class="paragraph mob-hidden">2.</p>
+              <h5 class="didascalia mob-hidden"><span class="title-proj">The Adaptive Machine</span> (2019), interactive speculative device exhibited at BASE Milano and Triennale Design Musem Milano.</h5>
+            </div>
+          </div>
+          <div class="note" id="note3">
+            <img style="display: none;" src="assets/imgs/reel-mob-note-2.gif" alt="">
+            <video class="mob-hidden" autoplay="" muted="" loop="" playsinline="" id="video-note-3">
+              <source src="assets/video/video-note7.mp4" type="video/mp4">
+                Your browser does not support HTML5 video.
+            </video>
+            <video class="des-hidden" autoplay="" muted="" loop="" playsinline="" id="video-note-3">
+              <source src="assets/video/video-note-3mob.mp4" type="video/mp4">
+                Your browser does not support HTML5 video.
+            </video>
+            <div class="note-mob-info full-with-info">
+              <p class="paragraph">3.</p>
+              <h5 class="didascalia">A few website I've recently designed and/or develeoped.</p>
+            </div>
+            <div class="note-des-info mob-hidden">
+              <p class="paragraph mob-hidden">3.</p>
+              <h5 class="didascalia mob-hidden">A few website I've recently designed and/or develeoped.</p>
+            </div>
+          </div>
+          <div class="note" id="note4">
+            <div class="note-mob-info">
+              <p class="paragraph">4.</p>
+              <h5 class="didascalia">Quadratone table (2021), Saponetta coffee table (2021) and Stool #1 (2020).</p>
+            </div>
+            <img src="assets/imgs/note-4-d.gif" alt="" class="mob-hidden">
+            <img src="assets/imgs/note-4-m.gif" alt="" class="des-hidden">
+            <div class="note-des-info">
+              <p class="paragraph mob-hidden">4.</p>
+              <h5 class="didascalia mob-hidden">Quadratone table (2021), Saponetta coffee table (2021) and Stool (2020).</p>
+            </div>
+          </div>
+        </div>
+        </div>
+      </div>
+    </section>
+    <header class="head-menu mob-hidden">
       <div class="ctrls-3d">
         <div class="s-btn scale-btn">S</div>
         <div class="m-btn active-scale scale-btn">M</div>
         <div class="l-btn scale-btn">L</div>
         <div class="xl-btn scale-btn hidden">XL</div>
-        <div class="my-btn">Shuffle</div>
-        <div class="w-btn">Restart</div>
+        <div class="my-btn scale-btn"><img class="swatch-btn" src="/assets/imgs/swatch-col.png" alt="Shuffle"></div>
+        <div class="w-btn scale-btn"><img class="swatch-btn" src="/assets/imgs/swatch-bn.png" alt="Reset"></div>
         <div style="display:none;"><a href="/pages/test.html">GO</a></div>
       </div>
         <div class="clock-wrapper mob-hidden">
           <div class="time">
-            <span class="city">Milan</span> 
             <span class="hh"></span>
             <span class="blinking-dots">:</span>
             <span class="mm"></span>
           </div>
+          <div class="city"><span class="city">Milan</span></div>
           <div class="weather"></div>
+          <div class="city"><span class="city">Amsterdam</span></div>
+          <div class="weather-ams"></div>
           <div class="weather-visualization"></div>
         </div>
     </header>
-    <section class="main-content-home">
-      <div class="first-paragraph-col">
-        <p class="paragraph">I’m <span class="h-text no-link">Alberto Candido</span>,<br>
-          visual designer and developer based in <span class="h-text no-link">Milan</span>.<br><br>Currently working at
-          <a href="https://www.archimede6.com/" class="h-text no-link link-contacts">Archimede6</a>, freelancing and teaching assistant at
-          <span class="note-ref note-ref-1"><span class="h-text link-e">Politecnico di Milano</span><span class="no-br">.<sup>[1]</sup></span></span>
-          <br>I care of design details while exploring the possibilities of coding, whether the output is
-          <span class="note-ref note-ref-2"><span class="h-text link-e">tangible</span><sup>[2]</sup></span> or
-          <span class="note-ref note-ref-3"><span class="h-text link-e">digital</span>.<sup>[3]</sup></span> I do some
-          <span class="note-ref note-ref-4"><span class="h-text link-e">woodworking</span><sup>[4]</sup></span> as well.
-        <br><br>Contact me at <a href="mailto:abt.candido@gmail.com" class="h-text link-e">abt.candido[at]gmail.com</a><br>
-        <a href="https://www.linkedin.com/in/alberto-candido-8933bab5/" class="link-contacts">Linkedin</a>,
-        <a href="https://github.com/abcandido" class="link-contacts">Github</a>,
-        <a href="https://www.are.na/alberto-candido" class="link-contacts">Are.na</a></p>
-      </div>
-      <div class="notes-section">
-        <div class="notes-wrapper">
-        <div class="note" id="note-1">
-          <div class="note-mob-info full-with-info">
-            <p class="paragraph">1.</p>
-            <h5 class="didascalia">Politecnico di Milano university, department of Communication Design.</h5>
+    <section class="proj-section" id="main-project-section">
+      <header class="proj-section-header page-width des-hidden">
+        <h2>Recent Projects</h2>
+      </header>
+      <article class="proj-highlight-container">
+        <div class="proj-highlight">  
+          <div class="proj-highlight__media">
+            <a href="/projects/mudiac.html">
+              <figure class="proj-highlight__img-container">
+                <img class="lazy-img" src="assets/proj/mudiac/cover7_lz.jpg" data-src="assets/proj/mudiac/cover7.jpg" alt="">
+                <img class="pixelated-hover-img" src="assets/proj/mudiac/cover7_lz.jpg">
+              </figure>
+            </a>
           </div>
-          <div class="note-des-info  mob-hidden">
-            <p class="paragraph mob-hidden">1.</p>
-            <h5 class="didascalia mob-hidden">Politecnico di Milano university, department of Communication Design.</h5>
+          <div class="proj-highlight__content__wrap">
+            <div class="proj-highlight__content">
+              <header class="proj-highlight__header">
+                <div class="proj-highlight__header__banner">
+                  
+                </div>
+                <div class="proj-highlight__header__title"><a href="/projects/mudiac.html">
+                  <h5 class="des-hidden">
+                    <span class="proj-tag">● 2022</span>
+                    <span class="proj-tag">● Branding</span>
+                    <span class="proj-tag">● Web design</span>
+                    <span class="proj-tag">● Web developement</span>
+                  </h5>
+                  <h2>Mudiac<br>Crafting the digital experience for a scattered Italian Museum.</h2></a>
+                  <h5 class="mob-hidden">
+                    <span class="proj-tag">● 2022</span>
+                    <span class="proj-tag">● Branding</span>
+                    <span class="proj-tag">● Web design</span>
+                    <span class="proj-tag">● Web developement</span>
+                  </h5></div>
+              </header>
+            </div>
           </div>
-        </div>
-        <div class="note" id="note-2">
-          <img src="assets/imgs/note-3.gif" alt="">
-          <div class="note-mob-info">
-            <p class="paragraph">2.</p>
-            <h5 class="didascalia"><span class="title-proj">The Adpative Machine</span>, interactive speculative device exhibited at BASE Milano and Triennale Design Musem Milano — 2019.</h5>
+        </div>    
+      </article>
+      <article class="proj-highlight-container">
+        <div class="proj-highlight">  
+          <div class="proj-highlight__media">
+            <a href="/projects/arazzi-contemporanei.html">
+              <figure class="proj-highlight__img-container">
+                <img class="lazy-img" src="assets/proj/arazzi/cover_lz12x8.jpg" data-src="assets/proj/arazzi/cover_12x8.jpg" alt="">
+                <img class="pixelated-hover-img" src="assets/proj/arazzi/cover_lz12x8.jpg">
+              </figure>
+            </a>
           </div>
-          <div class="note-des-info mob-hidden">
-            <p class="paragraph mob-hidden">2.</p>
-            <h5 class="didascalia mob-hidden"><span class="title-proj">The Adaptive Machine</span> (2019), interactive speculative device exhibited at BASE Milano and Triennale Design Musem Milano.</h5>
+          <div class="proj-highlight__content__wrap">
+            <div class="proj-highlight__content">
+              <header class="proj-highlight__header">
+                <div class="proj-highlight__header__banner">
+                  
+                </div>
+                <div class="proj-highlight__header__title"><a href="/projects/arazzi-contemporanei.html">
+                  <h5 class="des-hidden">
+                    <span class="proj-tag">● 2021</span>
+                    <span class="proj-tag">● Web design</span>
+                    <span class="proj-tag">● Web developement</span>
+                  </h5>
+                  <h2>Arazzi Contemporanei<br>A digital gallery that connects art, design, culture and technology.</h2></a>
+                  <h5 class="mob-hidden">
+                    <span class="proj-tag">● 2021</span>
+                    <span class="proj-tag">● Web design</span>
+                    <span class="proj-tag">● Web developement</span>
+                  </h5></div>
+              </header>
+            </div>
           </div>
-        </div>
-        <div class="note" id="note3">
-          <img style="display: none;" src="assets/imgs/reel-mob-note-2.gif" alt="">
-          <video class="mob-hidden" autoplay="" muted="" loop="" playsinline="" id="video-note-3">
-            <source src="assets/video/video-note7.mp4" type="video/mp4">
-              Your browser does not support HTML5 video.
-          </video>
-          <video class="des-hidden" autoplay="" muted="" loop="" playsinline="" id="video-note-3">
-            <source src="assets/video/video-note-3mob.mp4" type="video/mp4">
-              Your browser does not support HTML5 video.
-          </video>
-          <div class="note-mob-info full-with-info">
-            <p class="paragraph">3.</p>
-            <h5 class="didascalia">A few website I've recently designed and/or developed.</p>
+        </div>    
+      </article>
+      <article class="proj-highlight-container">
+        <div class="proj-highlight">  
+          <div class="proj-highlight__media">
+            <a href="/projects/archimede6.html">
+              <figure class="proj-highlight__img-container">
+                <img class="lazy-img" src="assets/proj/a6/cover_lz.jpg" data-src="assets/proj/a6/cover.jpg" alt="">
+                <img class="pixelated-hover-img" src="assets/proj/a6/cover_lz.jpg">
+              </figure>
+            </a>
           </div>
-          <div class="note-des-info mob-hidden">
-            <p class="paragraph mob-hidden">3.</p>
-            <h5 class="didascalia mob-hidden">A few website I've recently designed and/or developed.</p>
+          <div class="proj-highlight__content__wrap">
+            <div class="proj-highlight__content">
+              <header class="proj-highlight__header">
+                <div class="proj-highlight__header__banner">
+                  
+                </div>
+                <div class="proj-highlight__header__title"><a href="/projects/archimede6.html">
+                  <h5 class="des-hidden">
+                    <span class="proj-tag">● 2020</span>
+                    <span class="proj-tag">● Web developement</span>
+                  </h5>
+                  <h2>Archimede6.com<br>A brand new portfolio for a comunication fashion agency in Milan.</h2></a>
+                  <h5 class="mob-hidden">
+                    <span class="proj-tag">● 2020</span>
+                    <span class="proj-tag">● Web developement</span>
+                  </h5></div>
+              </header>
+            </div>
           </div>
-        </div>
-        <div class="note" id="note4">
-          <div class="note-mob-info">
-            <p class="paragraph">4.</p>
-            <h5 class="didascalia">Quadratone table (2021), Saponetta coffee table (2021) and Stool #1 (2020).</p>
+        </div>    
+      </article>
+      <article class="proj-highlight-container">
+        <div class="proj-highlight">  
+          <div class="proj-highlight__media">
+            <a href="/projects/huiling-li.html">
+              <figure class="proj-highlight__img-container">
+                <img class="lazy-img" src="assets/proj/hl/cover_lz.jpg" data-src="assets/proj/hl/cover.jpg" alt="">
+                <img class="pixelated-hover-img" src="assets/proj/hl/cover_lz.jpg">
+              </figure>
+            </a>
           </div>
-          <img src="assets/imgs/note-4-d.gif" alt="" class="mob-hidden">
-          <img src="assets/imgs/note-4-m.gif" alt="" class="des-hidden">
-          <div class="note-des-info">
-            <p class="paragraph mob-hidden">4.</p>
-            <h5 class="didascalia mob-hidden">Quadratone table (2021), Saponetta coffee table (2021) and Stool (2020).</p>
+          <div class="proj-highlight__content__wrap">
+            <div class="proj-highlight__content">
+              <header class="proj-highlight__header">
+                <div class="proj-highlight__header__banner">
+                  
+                </div>
+                <div class="proj-highlight__header__title"><a href="/projects/huiling-li.html">
+                  <h5 class="des-hidden">
+                    <span class="proj-tag">● 2020</span>
+                    <span class="proj-tag">● Web developement</span>
+                  </h5>
+                  <h2>Huiling Li Portfolio<br>Colourful showcase for a talented digital designer.</h2></a>
+                  <h5 class="mob-hidden">
+                    <span class="proj-tag">● 2020</span>
+                    <span class="proj-tag">● Web developement</span>
+                  </h5></div>
+              </header>
+            </div>
           </div>
-        </div>
-      </div>
-      </div>
-    </section>
-    <section class="proj-section hidden">
+        </div>    
+      </article>
+      <article class="proj-highlight-container">
+        <div class="proj-highlight">  
+          <div class="proj-highlight__media">
+            <a href="/projects/adaptive-machine.html">
+              <figure class="proj-highlight__img-container">
+                <img class="lazy-img" src="assets/proj/adaptive-machine/cover_lz.jpg" data-src="assets/proj/adaptive-machine/cover.jpg" alt="">
+                <img class="pixelated-hover-img" src="assets/proj/adaptive-machine/cover_lz.jpg">
+              </figure>
+            </a>
+          </div>
+          <div class="proj-highlight__content__wrap">
+            <div class="proj-highlight__content">
+              <header class="proj-highlight__header">
+                <div class="proj-highlight__header__banner">
+                  
+                </div>
+                <div class="proj-highlight__header__title"><a href="/projects/adaptive-machine.html">
+                  <h5 class="des-hidden">
+                    <span class="proj-tag">● 2019</span>
+                    <span class="proj-tag">● Physical computing</span>
+                    <span class="proj-tag">● Interaction design</span>
+                  </h5>
+                  <h2>The Adaptive Machine<br>A speculative installation that investigates human and design.</h2></a>
+                  <h5 class="mob-hidden">
+                    <span class="proj-tag">● 2019</span>
+                    <span class="proj-tag">● Physical computing</span>
+                    <span class="proj-tag">● Interaction design</span>
+                  </h5></div>
+              </header>
+            </div>
+          </div>
+        </div>    
+      </article>
+      <article class="proj-highlight-container">
+        <div class="proj-highlight">  
+          <div class="proj-highlight__media">
+            <a href="/projects/department-five.html">
+              <figure class="proj-highlight__img-container">
+                <img class="lazy-img" src="assets/proj/d5/cover_lz.jpg" data-src="assets/proj/d5/cover.jpg" alt="">
+                <img class="pixelated-hover-img" src="assets/proj/d5/cover_lz.jpg">
+              </figure>
+            </a>
+          </div>
+          <div class="proj-highlight__content__wrap">
+            <div class="proj-highlight__content">
+              <header class="proj-highlight__header">
+                <div class="proj-highlight__header__banner">
+                  
+                </div>
+                <div class="proj-highlight__header__title"><a href="/projects/department-five.html">
+                  <h5 class="des-hidden">
+                    <span class="proj-tag">● 2021</span>
+                    <span class="proj-tag">● Web developement</span>
+                  </h5>
+                  <h2>Department five<br>Shaping the new digital shopping experience for a bold Italian brand.</h2></a>
+                  <h5 class="mob-hidden">
+                    <span class="proj-tag">● 2021</span>
+                    <span class="proj-tag">● Web developement</span>
+                  </h5></div>
+              </header>
+            </div>
+          </div>
+        </div>    
+      </article>
+      <article class="proj-highlight-container">
+        <div class="proj-highlight">  
+          <div class="proj-highlight__media">
+            <a href="/projects/woodworking.html">
+              <figure class="proj-highlight__img-container">
+                <img class="lazy-img" src="assets/proj/woodworking/cover_lz.jpg" data-src="assets/proj/woodworking/cover.jpg" alt="">
+                <img class="pixelated-hover-img" src="assets/proj/woodworking/cover_lz.jpg">
+              </figure>
+            </a>
+          </div>
+          <div class="proj-highlight__content__wrap">
+            <div class="proj-highlight__content">
+              <header class="proj-highlight__header">
+                <div class="proj-highlight__header__banner">
+                  
+                </div>
+                <div class="proj-highlight__header__title"><a href="/projects/woodworking.html">
+                  <h5 class="des-hidden">
+                    <span class="proj-tag">● 2020-22</span>
+                    <span class="proj-tag">● Prototyping</span>
+                    <span class="proj-tag">● Proudct design</span>
+                    <span class="proj-tag">● Research</span>
+                  </h5>
+                  <h2>Woodworking selection<br>A material research about formal qualities of wooden furniture.</h2></a>
+                  <h5 class="mob-hidden">
+                    <span class="proj-tag">● 2020-22</span>
+                    <span class="proj-tag">● Prototyping</span>
+                    <span class="proj-tag">● Proudct design</span>
+                    <span class="proj-tag">● Research</span>
+                  </h5></div>
+              </header>
+            </div>
+          </div>
+        </div>    
+      </article>
+      <footer>
+        <section class="page-width">
+          <div class="contact-section">
+            <h2>Drop me a line for collaboration, commission or conversation.<br>
+              <a href="mailto:abt.candido@gmail.com">abt.candido[at]gmail.com</a></h2>
+          </div>
+        </section>
+        <div class="grid-page page-width">
+          <div class="footer-col-item des-grid-col-3 mob-grid-col-12">
+            <a href="" class="footer-item">About</a>
+            <a href="" class="footer-item">Archive</a>
 
+          </div>
+          <div class="footer-col-item des-grid-col-3 mob-grid-col-12">
+            <a href="" class="footer-item">E-mail</a>
+            <a href="" class="footer-item">Linkedin</a>
+            
+          </div>
+          <div class="footer-col-item des-grid-col-3 mob-grid-col-12">
+            <a href="" class="footer-item">Github</a>
+            <a href="" class="footer-item">Are.na</a>
+          </div>
+          <div class="footer-col-item des-grid-col-3 mob-grid-col-12 ">
+            <a href="" class="footer-item">Last update</a>
+            <a href="" class="footer-item">August 2022</a>
+          </div>
+         
+          <div class="footer-col-item des-grid-col-3 mob-grid-col-6 bottom-grid-element small-text hidden">
+            <span>All trademarks, images, logos in this portfolio are the property of their respective owners. Last update, August 2022.</span>
+          </div>
+          <div class="hidden footer-col-item des-grid-col-3 mob-grid-col-6 bottom-grid-element">
+            <div class="right-align-item-footer footer-item">©2022</div>
+          </div>
+        </div>
+      </footer>
     </section>
     <script type="module" src="js/script.js"></script>
 </body>

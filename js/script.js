@@ -1,3 +1,4 @@
+
 //import { GLTFLoader } from '/node_modules/three/examples/jsm/loaders/GLTFLoader.js';
 //import {OrbitControls} from "/node_modules/three/examples/jsm/controls/OrbitControls.js";
 
@@ -24,6 +25,9 @@ const geometry3 = new THREE.BoxGeometry( rndSizeCube(), rndSizeCube(), rndSizeCu
 const geometry4 = new THREE.BoxGeometry( rndSizeCube(), rndSizeCube(), rndSizeCube() );
 const geometry5 = new THREE.BoxGeometry( rndSizeCube(), rndSizeCube(), rndSizeCube() );
 const geometry6 = new THREE.BoxGeometry( rndSizeCube(), rndSizeCube(), rndSizeCube() );
+//new cubes here
+const geometry7 = new THREE.BoxGeometry( rndSizeCube(), rndSizeCube(), rndSizeCube() );
+const geometry8 = new THREE.BoxGeometry( rndSizeCube(), rndSizeCube(), rndSizeCube() );
 
 // Materials
 
@@ -86,7 +90,7 @@ material2.color = new THREE.Color(0xa8b6af);
 
 //array Materials
 let arrMaterials = [];
-for (let i = 0; i <  6; i++) {
+for (let i = 0; i <  8; i++) {
   arrMaterials[i] = new THREE.MeshToonMaterial();
   arrMaterials[i].roughness = 1;
   arrMaterials[i].metalness = 0;
@@ -107,6 +111,8 @@ const cube3 = new THREE.Mesh(geometry3,arrMaterials[2]);
 const cube4 = new THREE.Mesh(geometry4,arrMaterials[3]);
 const cube5 = new THREE.Mesh(geometry5,arrMaterials[4]);
 const cube6 = new THREE.Mesh(geometry6,arrMaterials[5]);
+const cube7 = new THREE.Mesh(geometry6,arrMaterials[6]);
+const cube8 = new THREE.Mesh(geometry6,arrMaterials[7]);
 
 //change cubes position
 //cube2.position.x = -1;
@@ -116,8 +122,10 @@ cube3.position.set(.5 + rndCoordinates(), 1 + rndCoordinates(), -1 + rndCoordina
 cube4.position.set(1.2 + rndCoordinates(), -1 + rndCoordinates(), 1 + rndCoordinates());
 cube5.position.set(1.9 + rndCoordinates(), .8 + rndCoordinates(), 1.2 + rndCoordinates());
 cube6.position.set(-2.4 + rndCoordinates(), -1 + rndCoordinates(), -0.4 + rndCoordinates());
+cube7.position.set(-1 + rndCoordinates(), -.4 + rndCoordinates(), 1.2 + rndCoordinates());
+cube8.position.set( -.2 + rndCoordinates(), 0.4 + rndCoordinates(), 1.2 + rndCoordinates());
 
-let arrCube = [cube1, cube2, cube3, cube4, cube5, cube6];
+let arrCube = [cube1, cube2, cube3, cube4, cube5, cube6, cube7, cube8];
 
 const posCub6 = gui.addFolder('Pos Cube 6');
 
@@ -228,6 +236,8 @@ group.add( cube3 );
 group.add( cube4 );
 group.add( cube5 );
 group.add( cube6 );
+group.add( cube7 );
+group.add( cube8 );
 group.add( pointLight2 );
 group.add( pointLight3 );
 group.add( pointLight4 );
@@ -433,7 +443,7 @@ function changeCol() {
 }
 
 function restoreCol() {
-  setMsize();
+  //setMsize();
   for (let i = 0; i <  arrCube.length; i++) {
     arrCube[i].material.color = new THREE.Color(0xf4f4f4);
     arrCube[i].material.needsUpdate = true;
@@ -593,9 +603,11 @@ for(let i = 0; i < arrNoteRef.length; i++){
 
 
 
+
 //weather app
 
 var tempContainer = document.querySelector('.weather');
+var amsTempContainer = document.querySelector('.weather-ams');
 var timeContainer = document.querySelector('.time');
 
 fetch('https://api.openweathermap.org/data/2.5/weather?id=3181495&appid=bcaf9c31edd9e8921ce40801310ae53f')
@@ -605,12 +617,12 @@ fetch('https://api.openweathermap.org/data/2.5/weather?id=3181495&appid=bcaf9c31
   var temperatureMilan = data['main']['temp'];
 
     temperatureMilan = Math.round((temperatureMilan - 273.15) * 1) / 1;
-    tempContainer.innerHTML = temperatureMilan;
+    tempContainer.innerHTML = temperatureMilan + '°c';
 
     //time milanTime
     var milanTime = new Date(data.dt*1000+(data.timezone));
     //timeContainer.innerHTML = milanTime;
-    console.log(milanTime);
+    //console.log(milanTime);
     //console.log("ora: " + milanTime.getHours());
 
     //meteo emoji
@@ -624,6 +636,30 @@ fetch('https://api.openweathermap.org/data/2.5/weather?id=3181495&appid=bcaf9c31
     }
 })
 .catch(err => console.log(err))
+
+
+//ams meteo
+fetch('https://api.openweathermap.org/data/2.5/weather?id=2759794&appid=bcaf9c31edd9e8921ce40801310ae53f')
+.then(response => response.json())
+.then(data => {
+  //console.log(data)
+  var temperatureAms = data['main']['temp'];
+
+    temperatureAms = Math.round((temperatureAms - 273.15) * 1) / 1;
+    amsTempContainer.innerHTML = temperatureAms + '°c';
+
+    //meteo emoji
+    var weatherFace = document.querySelector('.weather-visualization');
+    if(temperatureAms < 10){
+      weatherFace.innerHTML = '🥶';
+    }else if (temperatureMilan < 20) {
+      weatherFace.innerHTML = '😎';
+    } else {
+      weatherFace.innerHTML = '🥵';
+    }
+})
+.catch(err => console.log(err))
+
 
 //time milanTime
 function addLeadingZero(n) {
@@ -665,5 +701,138 @@ function windTheClock(timeZoneOffset)
 }
 
 window.onload = function() {
-    windTheClock(1);
+    windTheClock(2);
 }
+
+
+
+//lazyload
+
+const lazyLoadImage = document.querySelectorAll(".lazy-img");
+const lazyLoadImageBig = document.querySelectorAll(".lazy-img-big");
+//console.log("fattoooooo");
+console.log(lazyLoadImage);
+
+
+
+let options = {
+  threshold: 1
+};
+let optionsBig = {
+  threshold: 0
+};
+let observer = new IntersectionObserver(imageObserver, options);
+let observerBig = new IntersectionObserver(imageObserver, optionsBig);
+
+function imageObserver(entries, observer) {
+  entries.forEach(entry => {
+    if(entry.isIntersecting) {
+      const img = entry.target;
+      const img_src = img.dataset.src;
+      console.log("Lazy loading " + img);
+      console.log(img);
+      img.src = img_src;
+      if(img.classList.contains("lzimg-test")){
+        let imgPlaceHolder = img.nextSibling.nextElementSibling;
+        setTimeout(() => {
+          imgPlaceHolder.classList.add("remove-placeholder");
+        }, "1000")
+        
+      }
+
+      img.onload = function() {
+        //this.classList.add("remove-pixelated");
+        //rimuovo pixaleted dopo che l'immagine è stata caricata
+        setTimeout(() => {
+          this.classList.add("remove-pixelated");
+         }, "300")
+        //console.log("caricattt");
+      };
+      img.onloadeddata = function() {
+        this.classList.add("remove-pixelated");
+        //console.log("caricattt");
+      };
+
+      //setTimeout(() => {
+      //  img.classList.add("remove-pixelated");
+      //}, "1000")
+      
+
+      
+      
+      
+      observer.unobserve(img);
+    }
+  });
+}
+
+let lazyItems = document.querySelectorAll(".lazy-img");
+
+lazyItems.forEach(img => {
+  observer.observe(img);
+});
+
+let lazyItemsBig = document.querySelectorAll(".lazy-img-big");
+
+lazyItemsBig.forEach(img => {
+  observerBig.observe(img);
+});
+
+
+
+
+
+//hover show projects
+/*
+let previewProjectsActive = false;
+let previewProjectsBtn = document.querySelector('.preview-projects-btn');
+let projectsWrapper = document.querySelector('.proj-section');
+
+previewProjectsBtn.addEventListener("mouseover", function( event ) {
+  if(!previewProjectsActive){
+    projectsWrapper.classList.add('show-preview-projects');
+    previewProjectsActive = true;
+  }
+}, false);
+
+previewProjectsBtn.addEventListener("mouseleave", function( event ) {
+  if(previewProjectsActive){
+    projectsWrapper.classList.remove('show-preview-projects');
+    previewProjectsActive = false;
+  }
+}, false);
+
+previewProjectsBtn.addEventListener("click", function( event ) {
+  let pageHeight = window.innerHeight;
+
+  projectsWrapper.classList.remove('show-preview-projects');
+    previewProjectsActive = false;
+    
+  window.scroll({
+    top: pageHeight,
+    behavior: 'smooth'
+  });
+}, false);
+*/
+
+
+
+let workProjectsBtn = document.querySelector('.work-btn');
+
+workProjectsBtn.addEventListener("click", function( event ) {
+  let pageHeight = window.innerHeight;
+  console.log("clicccc");
+
+  window.scroll({
+    top: pageHeight,
+    behavior: 'smooth'
+  });
+}, false);
+
+
+
+
+
+
+
+/**/
