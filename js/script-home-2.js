@@ -18,6 +18,51 @@ const scene = new THREE.Scene()
 // Objects
 const geometry = new THREE.BoxGeometry( rndSizeCube(), rndSizeCube(), rndSizeCube() );
 
+
+const cubeAg = new THREE.BoxGeometry( 1, 1, 1 );
+const cubeBg = new THREE.BoxGeometry( 1, 1, 1 );
+const cubeCg = new THREE.BoxGeometry( 1, 1, 1 );
+const cubeDg = new THREE.BoxGeometry( 1, 1, 1 );
+const cubeEg = new THREE.BoxGeometry( 1, 1, 1 );
+const cubeFg = new THREE.BoxGeometry( 1, 1, 1 );
+const cubeGg = new THREE.BoxGeometry( 1, 1, 1 );
+const cubeHg = new THREE.BoxGeometry( 1, 1, 1 );
+
+
+
+//20220713 cubi rgb test
+
+//variabile per lunghezza cubo matrice
+var cuboMatrixWidth = 2;
+
+//lato cubo singolo
+var cubeSide = 1;
+
+//spazio tra i cubi
+var cubeSpace = .000000000000000000001;
+
+// dichiaro matrice cubi
+var cuboMatrixGeometry = [];
+
+// inizializzo matrice geometrie
+for (let i=0; i < cuboMatrixWidth; i++) {
+  cuboMatrixGeometry[i] = [];
+  for (let j=0; j < cuboMatrixWidth; j++) {
+    cuboMatrixGeometry[i][j] = [];
+    for (let z=0; z < cuboMatrixWidth; z++) {
+      cuboMatrixGeometry[i][j][z] = new THREE.BoxGeometry( cubeSide, cubeSide, cubeSide );
+    }
+  }
+}
+
+for (let i=0; i < cuboMatrixWidth; i++) {
+  for (let j=0; j < cuboMatrixWidth; j++) {
+    for (let z=0; z < cuboMatrixWidth; z++) {
+      //console.log(cuboMatrixGeometry[i][j][z]);
+    }
+  }
+}
+
 //const geometry2 = new THREE.BoxGeometry( .5, .2, 1 );
 //const geometry3 = new THREE.BoxGeometry( .2, 1.5, .2 );
 const geometry2 = new THREE.BoxGeometry( rndSizeCube(), rndSizeCube(), rndSizeCube() );
@@ -105,17 +150,74 @@ for (let i = 0; i <  8; i++) {
 
 
 // Mesh
-const cube1 = new THREE.Mesh(geometry,arrMaterials[0]);
-const cube2 = new THREE.Mesh(geometry2,arrMaterials[1]);
-const cube3 = new THREE.Mesh(geometry3,arrMaterials[2]);
-const cube4 = new THREE.Mesh(geometry4,arrMaterials[3]);
-const cube5 = new THREE.Mesh(geometry5,arrMaterials[4]);
-const cube6 = new THREE.Mesh(geometry6,arrMaterials[5]);
-const cube7 = new THREE.Mesh(geometry6,arrMaterials[6]);
-const cube8 = new THREE.Mesh(geometry6,arrMaterials[7]);
+const cubeA = new THREE.Mesh(geometry,arrMaterials[0]);
+const cubeB = new THREE.Mesh(geometry2,arrMaterials[1]);
+const cubeC = new THREE.Mesh(geometry3,arrMaterials[2]);
+const cubeD = new THREE.Mesh(geometry4,arrMaterials[3]);
+const cubeE = new THREE.Mesh(geometry5,arrMaterials[4]);
+const cubeF = new THREE.Mesh(geometry6,arrMaterials[5]);
+const cubeG = new THREE.Mesh(geometry6,arrMaterials[6]);
+const cubeH = new THREE.Mesh(geometry6,arrMaterials[7]);
+
+
+
+//
+// dichiaro matrice cubi
+var cuboMatrix = [];
+
+// dichiaro array colore vertici
+var colorArr = [
+  "#ffffff", "#a7dfff",
+  "#ff9a00", "#f44336",
+  "#8ff991", "#e76ba9",
+  "#40e0d0", "#000000"];
+
+
+// inizializzo matrice geometrie
+let posX = 0;
+let posY = 0;
+let posZ = 0;
+for (let i=0; i < cuboMatrixWidth; i++) {
+  cuboMatrix[i] = [];
+  for (let j=0; j < cuboMatrixWidth; j++) {
+    cuboMatrix[i][j] = [];
+    for (let z=0; z < cuboMatrixWidth; z++) {
+      // creo cubo
+      //let colRnd = parseInt ( colArrShuffle[i].replace("#","0x"), 16 );
+      let colorTemp = new THREE.MeshToonMaterial();
+      colorTemp.color = new THREE.Color("#eb6d43");
+      cuboMatrix[i][j][z] = new THREE.Mesh(cuboMatrixGeometry[i][j][z], colorTemp);
+      // imposto la posizione
+      cuboMatrix[i][j][z].position.set(posX, posY, posZ);
+
+      // incremento Z
+      posX = posX + 1 + cubeSpace;
+
+      // aggiungo alla scena
+      scene.add(cuboMatrix[i][j][z]);
+    }
+    // incremento Y
+    posY = posY + 1 + cubeSpace;
+  }
+  // incremento X
+  posZ = posZ + 1 + cubeSpace;
+}
+
+for (let i=0; i < cuboMatrixWidth; i++) {
+  for (let j=0; j < cuboMatrixWidth; j++) {
+    for (let z=0; z < cuboMatrixWidth; z++) {
+      console.log(cuboMatrixGeometry[i][j][z]);
+    }
+  }
+}
+
+
+
+
 
 //change cubes position
 //cube2.position.x = -1;
+/*
 cube1.position.set(0 + rndCoordinates(), 0 + rndCoordinates(), 0 + rndCoordinates());
 cube2.position.set(-1 + rndCoordinates(), .2 + rndCoordinates(), -.4 + rndCoordinates());
 cube3.position.set(.5 + rndCoordinates(), 1 + rndCoordinates(), -1 + rndCoordinates());
@@ -125,13 +227,12 @@ cube6.position.set(-2.4 + rndCoordinates(), -1 + rndCoordinates(), -0.4 + rndCoo
 cube7.position.set(-1 + rndCoordinates(), -.4 + rndCoordinates(), 1.2 + rndCoordinates());
 cube8.position.set( -.2 + rndCoordinates(), 0.4 + rndCoordinates(), 1.2 + rndCoordinates());
 
-let arrCube = [cube1, cube2, cube3, cube4, cube5, cube6, cube7, cube8];
+let arrCube = [cube1, cube2, cube3, cube4, cube5, cube6, cube7, cube8];*/
+//const posCub6 = gui.addFolder('Pos Cube 6');
 
-const posCub6 = gui.addFolder('Pos Cube 6');
-
-posCub6.add(cube6.position,'x').min(-50).max(50).step(0.1);
-posCub6.add(cube6.position,'y').min(-50).max(50).step(0.1);
-posCub6.add(cube6.position,'z').min(-50).max(50).step(0.1);
+//posCub6.add(cube6.position,'x').min(-50).max(50).step(0.1);
+//posCub6.add(cube6.position,'y').min(-50).max(50).step(0.1);
+//posCub6.add(cube6.position,'z').min(-50).max(50).step(0.1);
 
 //scene.add(cube1);
 //scene.add(cube2);
@@ -230,6 +331,7 @@ light6.add(pointLight7,'intensity').min(0).max(10).step(0.01);
 
 // group boxes
 const group = new THREE.Group();
+/*
 group.add( cube1 );
 group.add( cube2 );
 group.add( cube3 );
@@ -237,7 +339,18 @@ group.add( cube4 );
 group.add( cube5 );
 group.add( cube6 );
 group.add( cube7 );
-group.add( cube8 );
+group.add( cube8 );*/
+
+// raggruppo i cubi
+for (let i=0; i < cuboMatrixWidth; i++) {
+  for (let j=0; j < cuboMatrixWidth; j++) {
+    for (let z=0; z < cuboMatrixWidth; z++) {
+      group.add( cuboMatrix[i][j][z] );
+    }
+  }
+}
+
+
 group.add( pointLight2 );
 group.add( pointLight3 );
 group.add( pointLight4 );
@@ -607,7 +720,6 @@ for(let i = 0; i < arrNoteRef.length; i++){
 //weather app
 
 var tempContainer = document.querySelector('.weather');
-var amsTempContainer = document.querySelector('.weather-ams');
 var timeContainer = document.querySelector('.time');
 
 fetch('https://api.openweathermap.org/data/2.5/weather?id=3181495&appid=bcaf9c31edd9e8921ce40801310ae53f')
@@ -617,12 +729,12 @@ fetch('https://api.openweathermap.org/data/2.5/weather?id=3181495&appid=bcaf9c31
   var temperatureMilan = data['main']['temp'];
 
     temperatureMilan = Math.round((temperatureMilan - 273.15) * 1) / 1;
-    tempContainer.innerHTML = temperatureMilan + '°c';
+    tempContainer.innerHTML = temperatureMilan;
 
     //time milanTime
     var milanTime = new Date(data.dt*1000+(data.timezone));
     //timeContainer.innerHTML = milanTime;
-    //console.log(milanTime);
+    console.log(milanTime);
     //console.log("ora: " + milanTime.getHours());
 
     //meteo emoji
@@ -636,30 +748,6 @@ fetch('https://api.openweathermap.org/data/2.5/weather?id=3181495&appid=bcaf9c31
     }
 })
 .catch(err => console.log(err))
-
-
-//ams meteo
-fetch('https://api.openweathermap.org/data/2.5/weather?id=2759794&appid=bcaf9c31edd9e8921ce40801310ae53f')
-.then(response => response.json())
-.then(data => {
-  //console.log(data)
-  var temperatureAms = data['main']['temp'];
-
-    temperatureAms = Math.round((temperatureAms - 273.15) * 1) / 1;
-    amsTempContainer.innerHTML = temperatureAms + '°c';
-
-    //meteo emoji
-    var weatherFace = document.querySelector('.weather-visualization');
-    if(temperatureAms < 10){
-      weatherFace.innerHTML = '🥶';
-    }else if (temperatureMilan < 20) {
-      weatherFace.innerHTML = '😎';
-    } else {
-      weatherFace.innerHTML = '🥵';
-    }
-})
-.catch(err => console.log(err))
-
 
 //time milanTime
 function addLeadingZero(n) {
@@ -703,133 +791,6 @@ function windTheClock(timeZoneOffset)
 window.onload = function() {
     windTheClock(2);
 }
-
-
-
-//lazyload
-
-const lazyLoadImage = document.querySelectorAll(".lazy-img");
-const lazyLoadImageBig = document.querySelectorAll(".lazy-img-big");
-//console.log("fattoooooo");
-console.log(lazyLoadImage);
-
-
-
-let options = {
-  threshold: 1
-};
-let optionsBig = {
-  threshold: 0
-};
-let observer = new IntersectionObserver(imageObserver, options);
-let observerBig = new IntersectionObserver(imageObserver, optionsBig);
-
-function imageObserver(entries, observer) {
-  entries.forEach(entry => {
-    if(entry.isIntersecting) {
-      const img = entry.target;
-      const img_src = img.dataset.src;
-      console.log("Lazy loading " + img);
-      console.log(img);
-      img.src = img_src;
-      if(img.classList.contains("lzimg-test")){
-        let imgPlaceHolder = img.nextSibling.nextElementSibling;
-        setTimeout(() => {
-          imgPlaceHolder.classList.add("remove-placeholder");
-        }, "1000")
-        
-      }
-
-      img.onload = function() {
-        //this.classList.add("remove-pixelated");
-        //rimuovo pixaleted dopo che l'immagine è stata caricata
-        setTimeout(() => {
-          this.classList.add("remove-pixelated");
-         }, "300")
-        //console.log("caricattt");
-      };
-      img.onloadeddata = function() {
-        this.classList.add("remove-pixelated");
-        //console.log("caricattt");
-      };
-
-      //setTimeout(() => {
-      //  img.classList.add("remove-pixelated");
-      //}, "1000")
-      
-
-      
-      
-      
-      observer.unobserve(img);
-    }
-  });
-}
-
-let lazyItems = document.querySelectorAll(".lazy-img");
-
-lazyItems.forEach(img => {
-  observer.observe(img);
-});
-
-let lazyItemsBig = document.querySelectorAll(".lazy-img-big");
-
-lazyItemsBig.forEach(img => {
-  observerBig.observe(img);
-});
-
-
-
-
-
-//hover show projects
-/*
-let previewProjectsActive = false;
-let previewProjectsBtn = document.querySelector('.preview-projects-btn');
-let projectsWrapper = document.querySelector('.proj-section');
-
-previewProjectsBtn.addEventListener("mouseover", function( event ) {
-  if(!previewProjectsActive){
-    projectsWrapper.classList.add('show-preview-projects');
-    previewProjectsActive = true;
-  }
-}, false);
-
-previewProjectsBtn.addEventListener("mouseleave", function( event ) {
-  if(previewProjectsActive){
-    projectsWrapper.classList.remove('show-preview-projects');
-    previewProjectsActive = false;
-  }
-}, false);
-
-previewProjectsBtn.addEventListener("click", function( event ) {
-  let pageHeight = window.innerHeight;
-
-  projectsWrapper.classList.remove('show-preview-projects');
-    previewProjectsActive = false;
-    
-  window.scroll({
-    top: pageHeight,
-    behavior: 'smooth'
-  });
-}, false);
-*/
-
-
-
-let workProjectsBtn = document.querySelector('.work-btn');
-
-workProjectsBtn.addEventListener("click", function( event ) {
-  let pageHeight = window.innerHeight;
-  console.log("clicccc");
-
-  window.scroll({
-    top: pageHeight,
-    behavior: 'smooth'
-  });
-}, false);
-
-
 
 
 
