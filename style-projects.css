@@ -434,6 +434,8 @@ h5.didascalia {
   display: flex;
   justify-content: center;
   align-items: center;
+  background-size: cover;
+  image-rendering: pixelated;
 
 }
 .video-bg-container video,
