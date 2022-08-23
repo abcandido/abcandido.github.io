@@ -1015,9 +1015,11 @@ footer {
 /*mobile*/
 @media only screen and (max-width: 600px) {
   *:hover {
+    /*
     background: inherit;
     color: inherit;
     text-decoration: inherit;
+    */
   }
   .mob-hidden {
     display: none !important;
