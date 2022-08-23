@@ -910,6 +910,10 @@ footer {
   image-rendering: pixelated;
   height: auto;
 }
+.proj-highlight__img-container img:first-child {
+  width: 100%;
+  height: auto;
+}
 
 .about-section {
   padding-top: 4rem;
