@@ -502,9 +502,9 @@ h5.didascalia {
 /*mobile*/
 @media only screen and (max-width: 600px) {
   *:hover {
-    background: inherit;
+    /*background: inherit;
     color: inherit;
-    text-decoration: inherit;
+    text-decoration: inherit;*/
   }
   h1 {
     letter-spacing: -0.024em;
