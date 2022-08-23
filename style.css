@@ -732,6 +732,7 @@ h5.didascalia {
 .proj-highlight__content__wrap {
   position: relative;
   width: 100%;
+  background: var(--bg-white);
 }
 .proj-highlight__content {
   display: flex;
