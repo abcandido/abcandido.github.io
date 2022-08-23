@@ -157,7 +157,7 @@ function videoObserver(entries, observer) {
 /*
 
 
-
+*/
 
 
 
@@ -176,7 +176,7 @@ moreInfoBtn.addEventListener("click", function( event ) {
 }, false);
 
 
-/*
+
 
 let observer = new IntersectionObserver((entries, observer) => {
   entries.forEach(entry => {
