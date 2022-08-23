@@ -297,6 +297,7 @@ a {
     height: 100vh;
     width: 100%;
     z-index: auto;
+    -webkit-transform: translate3d(0,0,0);
 }
 
 .head-menu {
@@ -331,6 +332,7 @@ a {
   transition: transform 0.3s ease;
   color: var(--bg-white);
   mix-blend-mode: difference;
+  -webkit-transform: translate3d(0,0,99999px);
 }
 
 .top-header .name-home {
@@ -514,6 +516,7 @@ a {
   top: 0;
   width: 100%;
   height: 100%;
+  -webkit-transform: translate3d(0,0,0);
 }
 
 .main-content-home {
@@ -690,6 +693,7 @@ h5.didascalia {
   top: 100vh;
   transition: top .5s ease-in-out;
   background: var(--bg-white);
+  -webkit-transform: translate3d(0,0,99px);
 }
 .show-preview-projects {
   top: 85vh;
