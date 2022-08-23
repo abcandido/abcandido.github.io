@@ -654,7 +654,7 @@ h5.didascalia {
   .proj-content-wrapper .project-pagraph {
     font-size: 1.2rem;
     max-width: none;
-    text-indent: 0;
+    text-indent: 1em;
     line-height: calc(1 * var(--baseline));
   }
   .related-proj-grid {
