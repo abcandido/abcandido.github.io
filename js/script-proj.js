@@ -52,7 +52,7 @@ if(window.innerWidth > 989 ){
 
 const lazyLoadImage = document.querySelectorAll(".lazy-img");
 const lazyLoadImageBig = document.querySelectorAll(".lazy-img-big");
-console.log(lazyLoadImage);
+//console.log(lazyLoadImage);
 
 
 let options = {
