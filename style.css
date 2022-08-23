@@ -997,6 +997,10 @@ footer {
   font-size: .9rem;
   line-height: 1.1em;
 }
+footer {
+  -webkit-transform: translate3d(0,0,9px);
+  transform: translate3d(0,0,9px);
+}
 
 
 /*mobile*/
