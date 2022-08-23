@@ -908,6 +908,7 @@ footer {
   opacity: 0;
   transition: opacity .1s ease;
   image-rendering: pixelated;
+  height: auto;
 }
 
 .about-section {
