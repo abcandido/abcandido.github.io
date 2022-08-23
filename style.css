@@ -912,7 +912,7 @@ footer {
 }
 .proj-highlight__img-container img:first-child {
   width: 100%;
-  height: auto;
+  height: 100%;
 }
 
 .about-section {
