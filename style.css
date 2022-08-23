@@ -1274,6 +1274,9 @@ footer {
     font-size: 1.3rem;
     line-height: var(--baseline);
   }
+  .related-projects-section {
+    padding-bottom: calc(8 * var(--margin-page));
+  }
 
 
 }
