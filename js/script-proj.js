@@ -157,26 +157,6 @@ function videoObserver(entries, observer) {
 /*
 
 
-*/
-
-
-
-//show more info projects
-let previewProjectsActive = false;
-let moreInfoBtn = document.querySelector('.show-more-btn');
-let moreInfoWrapper = document.querySelector('.project-content-section');
-
-moreInfoBtn.addEventListener("click", function( event ) {
-  let pageHeight = window.innerHeight / 2;
-  console.log("cliccato");  
-  window.scroll({
-    top: pageHeight,
-    behavior: 'smooth'
-  });
-}, false);
-
-
-
 
 let observer = new IntersectionObserver((entries, observer) => {
   entries.forEach(entry => {
@@ -197,3 +177,18 @@ lazyLoadImage.forEach((image) =>{
 
 });
 */
+
+
+ //show more info projects
+let previewProjectsActive = false;
+let moreInfoBtn = document.querySelector('.show-more-btn');
+let moreInfoWrapper = document.querySelector('.project-content-section');
+
+moreInfoBtn.addEventListener("click", function( event ) {
+  let pageHeight = window.innerHeight / 2;
+  console.log("cliccato");  
+  window.scroll({
+    top: pageHeight,
+    behavior: 'smooth'
+  });
+}, false);
