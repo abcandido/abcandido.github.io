@@ -25,7 +25,7 @@ body{
   z-index: 9;
   background-color: #f7f7f5;
   background-color: #62d16d;
-  background-image: url("/playground/campioni/imgs/imgs/soccer.jpg");
+  background-image: url("/playground/campioni/imgs/soccer.jpg");
   background-size:cover;
   background-position: center;
   pointer-events: all;
