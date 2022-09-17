@@ -119,7 +119,7 @@ function init(){
                 isStatic: true,
                 render: {
                     sprite: {
-                        texture: '/playground/campioni/cup-min.png',
+                        texture: 'https://i.ibb.co/1sPyf14/cup-min.png',
                         xScale: 0.5,
                         yScale: 0.5
                     }
@@ -145,7 +145,7 @@ function init(){
                 friction: 0.01,
                 render: {
                     sprite: {
-                        texture: './imgs/fevernova-min.png',
+                        texture: 'https://i.ibb.co/n16dmS4/fevernova-min.png',
                         xScale: 0.5,
                         yScale: 0.5
                     }
@@ -158,7 +158,7 @@ function init(){
               friction: 0.04,
               render: {
                 sprite: {
-                  texture: './imgs/teamgeist-min.png',
+                  texture: 'https://i.ibb.co/6BrnCQ4/teamgeist-min.png',
                   xScale: 0.5,
                   yScale: 0.5
                             }
@@ -171,7 +171,7 @@ function init(){
                               friction: 0.01,
                               render: {
                                 sprite: {
-                                  texture: './imgs/tricolore-min.png',
+                                  texture: 'https://i.ibb.co/7NySHM5/tricolore-min.png',
                                   xScale: 0.5,
                                   yScale: 0.5
                                             }
@@ -279,7 +279,7 @@ btnClick.addEventListener('click', function(){
 var btnClickAdd = document.getElementById('inBasso');
 btnClickAdd.addEventListener('click', function(){
   //aggiungo pallone
-  var arrayTexture = ['./imgs/teamgeist-min.png','./imgs/tricolore-min.png','./imgs/teamgeist-final-min.png','.imgs/fevernova-min.png'];
+  var arrayTexture = ['https://i.ibb.co/6BrnCQ4/teamgeist-min.png','https://i.ibb.co/7NySHM5/tricolore-min.png','https://i.ibb.co/h2GrcJz/teamgeist-final-min.png','https://i.ibb.co/n16dmS4/fevernova-min.png'];
   var textureBall = Math.floor(Math.random() * 4) + 0;
   //console.log("è uscito il numero: "+ textureBall);
   var larghezzaSchermo = window.innerWidth;
